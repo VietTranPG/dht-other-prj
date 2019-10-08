@@ -1,0 +1,29 @@
+[debug] [2019-10-08T14:06:45.414Z] ----------------------------------------------------------------------
+[debug] [2019-10-08T14:06:45.416Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-10-08T14:06:45.417Z] CLI Version:   7.3.0
+[debug] [2019-10-08T14:06:45.417Z] Platform:      darwin
+[debug] [2019-10-08T14:06:45.417Z] Node Version:  v10.15.1
+[debug] [2019-10-08T14:06:45.418Z] Time:          Tue Oct 08 2019 21:06:45 GMT+0700 (Indochina Time)
+[debug] [2019-10-08T14:06:45.418Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-08T14:06:45.426Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-08T14:06:45.426Z] > authorizing via signed-in user
+[debug] [2019-10-08T14:06:45.427Z] [iam] checking project viettest-a2c1e for permissions ["firebase.projects.get"]
+[debug] [2019-10-08T14:06:45.428Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-10-08T14:06:45.428Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-10-08T14:06:45.654Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-08T14:06:45.673Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/viettest-a2c1e:testIamPermissions  
+
+[debug] [2019-10-08T14:06:46.881Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-08T14:06:46.883Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/viettest-a2c1e  
+ 
+[debug] [2019-10-08T14:06:47.613Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/apple/Desktop/dht/weather-app'...
+[info] 
+[debug] [2019-10-08T14:06:47.616Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/viettest-a2c1e/webApps/-/config  
+ 
+[debug] [2019-10-08T14:06:48.603Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: www
+[info] ✔  hosting: Local server: http://localhost:5000

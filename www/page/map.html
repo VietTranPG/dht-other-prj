@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info Window With maxWidth</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1ouT1hMcgs45cW2R2_n4c8idECIqf4_A">
+    </script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gm-style img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            var uluru = { lat: -25.363, lng: 131.044 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+
+            var contentString = '<img src="http://png.pngtree.com/element_our/png/20180912/coffee-time-png_91570.jpg"/>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 200
+            });
+
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+            infowindow.open(map, marker);
+        }
+        initMap();
+    </script>
+
+</body>
+
+</html>

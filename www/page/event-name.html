@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add contact to Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="../js/javascript.js"></script>
+</head>
+
+<body>
+    <div class="page page-weather">
+        <header class="header">
+            <div class="container header__container">
+                <h3 class="heading header__heading">Meet Mr Brad from Powergate</h3>
+                <p class="p-small header__p"><span class="icon-stop-watch header__icon"></span>11/06/2015 05:00 PM -
+                    11/06/2015 06:00 PM</p>
+                <p class="p-small header__p"><span class="icon-location header__icon"></span>Highland Coffee, 1 Trung
+                    Hoa, Cau Giay, Hanoi</p>
+                <span class="icon-stop-watch icon-large"></span>
+            </div>
+        </header>
+        <div class="list">
+            <div class="item">
+                <div class="container flex-between item__container" id="apple">
+                    <p>iCalendar</p>
+                    <p><span class="icon-add item__icon"></span></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container flex-between item__container" id="google">
+                    <p>Google Calendar</p>
+                    <p><span class="icon-add item__icon"></span></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container flex-between item__container" id="outLook">
+                    <p>Outlook</p>
+                    <p><span class="icon-add item__icon"></span></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container flex-between item__container" id="outLookOnline">
+                    <p>Outlook Online</p>
+                    <p><span class="icon-add item__icon"></span></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container flex-between item__container" id="yahoo">
+                    <p>Yahoo Calendar</p>
+                    <p><span class="icon-add item__icon"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#google').click(function () {
+            window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml','_blank')
+        })
+    })
+</script>
+
+</html>
