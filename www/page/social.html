@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/share.js"></script>
+</head>
+<style>
+    .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 50px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+    }
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-pinterest {
+        background: #cb2027;
+        color: white;
+    }
+
+    .fa-envelope {
+        background: gray;
+        color: white;
+    }
+
+    .fa-link {
+        background: darkseagreen;
+        color: white;
+    }
+
+    .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <input type="text" value="http://kenh14.vn/" id="inputForCopy" hidden>
+    <a class="fa fa-link" id="copyBtn"></a>
+    <a class="fa fa-facebook" data-sharer="facebook" data-url="http://www.cssscript.com/"></a>
+    <a class="fa fa-twitter" data-sharer="twitter" data-url="http://www.cssscript.com/"></a>
+    <a class="fa fa-pinterest" data-sharer="pinterest" data-url="http://www.cssscript.com/"></a>
+    <a class="fa fa-envelope" data-sharer="email" data-to="abcd@example.com" data-title="data title"
+        data-subject="test subject" data-url="http://www.cssscript.com/"></a>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#copyBtn').click(function () {
+            var copyText = document.getElementById("inputForCopy");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            alert("Copied the text: " + copyText.value);
+        })
+    });
+
+</script>
+
+</html>
