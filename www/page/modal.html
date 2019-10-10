@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Climate app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
+    <script src="../js/javascript.js"></script>
+</head>
+<style>
+   .modal-block {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url("https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.modal-block__container {
+  width: 50vw;
+  max-width: 350px;
+  min-width: 280px;
+  padding: 35px 45px;
+  position: relative;
+  background: #1da1f2;
+  border-radius: 8px;
+  color: #fff;
+}
+.modal-block__heading {
+  margin: 30px 0 10px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+.modal-block__title {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+}
+.modal-block__des {
+  margin: 0 0 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.25;
+}
+.modal-block__btn {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0) rotate(45deg);
+          transform: translate(-50%, 0) rotate(45deg);
+  background: #fff;
+  border: 1px solid #1da1f2;
+  border-radius: 50%;
+}
+.modal-block__close {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inlin-block;
+}
+.modal-block__close:before, .modal-block__close:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #1da1f2;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.modal-block__close:before {
+  width: 20px;
+  height: 2px;
+}
+.modal-block__close:after {
+  width: 2px;
+  height: 20px;
+}
+
+</style>
+
+<body>
+    <div class="modal-block">
+        <div class="modal-block__container">
+            <div class="modal-block__inner">
+                <button class="modal-block__btn">
+                    <span class="modal-block__close"></span>
+                </button>
+                <h2 class="modal-block__heading">GDPR Consent </h2>
+                <h4 class="modal-block__title">How we use cookies</h4>
+                <p class="modal-block__des">
+                    We use cookies to remember you and understand how you use our site. If you do not agree with this
+                    use cookies, please close this browser tab.
+                </p>
+                <p class="modal-block__des">
+                    If you do agree with our use of cookies to count views please touch this window to dismiss it and
+                    continue viewing the site. We hope you do.
+                </p>
+                <p class="modal-block__des">
+                    Thank you.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
