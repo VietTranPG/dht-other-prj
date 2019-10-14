@@ -72,6 +72,7 @@
 <body>
     <input type="text" value="http://kenh14.vn/" id="inputForCopy" hidden>
     <a class="fa fa-link" id="copyBtn"></a>
+
     <a class="fa fa-facebook" data-sharer="facebook" data-url="http://www.cssscript.com/"></a>
     <a class="fa fa-twitter" data-sharer="twitter" data-url="http://www.cssscript.com/"></a>
     <a class="fa fa-pinterest" data-sharer="pinterest" data-url="http://www.cssscript.com/"></a>
@@ -81,6 +82,16 @@
 </body>
 <script>
     $(document).ready(function () {
+        //params from url
+        var url = new URL(window.location.href);
+        var sharelink = url.searchParams.get("link");
+
+        var shareBtns = $("[data-url]");
+        shareBtns.each(function (index, ele) {
+            ele.setAttribute('data-url', sharelink)
+        })
+        $('#inputForCopy').val(sharelink)
+
         $('#copyBtn').click(function () {
             var copyText = document.getElementById("inputForCopy");
             copyText.select();

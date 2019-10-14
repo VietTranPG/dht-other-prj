@@ -5,7 +5,9 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Info Window With maxWidth</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js">
+
     </script>
     <style>
         /* Always set the map height explicitly to define the size of the div
@@ -31,31 +33,39 @@
 <body>
     <div id="map"></div>
     <script>
-        function initMap() {
-            var uluru = { lat: -25.363, lng: 131.044 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: uluru
-            });
+        $(document).ready(function () {
+            //params from url
+            var url = new URL(window.location.href);
+            var lat = Number(url.searchParams.get("lat"));
+            var lng = Number(url.searchParams.get("lng"));
+            var zoomLevel = Number(url.searchParams.get("zoom"));
+            var contentString = url.searchParams.get("content");
 
-            var contentString = '<img src="http://png.pngtree.com/element_our/png/20180912/coffee-time-png_91570.jpg"/>';
+            function initMap() {
+                var point = { lat: lat, lng: lng };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: zoomLevel,
+                    center: point
+                });
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString,
-                maxWidth: 200
-            });
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    maxWidth: 200
+                });
 
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-                title: 'Uluru (Ayers Rock)'
-            });
-            marker.addListener('click', function () {
+                var marker = new google.maps.Marker({
+                    position: point,
+                    map: map,
+                });
+                marker.addListener('click', function () {
+                    infowindow.open(map, marker);
+                });
                 infowindow.open(map, marker);
-            });
-            infowindow.open(map, marker);
-        }
-        initMap();
+            }
+            initMap();
+
+        })
+
     </script>
 
 </body>
