@@ -20,38 +20,77 @@
         </header>
         <div class="form">
             <div class="container form__container">
-                <form>
+                <form method="POST" id="form_data" action="">
                     <div class="input-block">
-                        <input placeholder="Name" />
+                        <input placeholder="Name" name="name" id="name" required/>
                     </div>
                     <div class="input-block">
-                        <input placeholder="Job Title" />
+                        <input placeholder="Job Title" id="jobTitle" name="jobTitle" required/>
                     </div>
                     <div class="input-block">
-                        <input placeholder="Email" />
+                        <input placeholder="Email" id="email" name="email" required/>
                     </div>
                     <div class="input-block">
-                        <input placeholder="Phone Number" />
+                        <input placeholder="Phone Number" id="phone" name="phone" required/>
                     </div>
                     <div class="input-block">
-                        <input placeholder="Company" />
+                        <input placeholder="Company" id="company" name="company" required/>
                     </div>
                     <div class="select-block">
                         <span class="arrow arrow-down"></span>
-                        <select>
-                            <option>Company Size</option>
-                            <option>1-20 employees</option>
-                            <option>21- 100 employees</option>
-                            <option>more than 101 employees</option>
+                        <select name="companySize" >
+                            <option value="1-20 employees">1-20 employees</option>
+                            <option value="21-100 employees">21- 100 employees</option>
+                            <option value="more thanh 101 employees">more than 101 employees</option>
                         </select>
                     </div>
                     <div class="form__footer">
-                        <button class="btn-primary">SUBMIT</button>
+                        <button class="btn-primary" id="btnSubmit">SUBMIT</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </body>
+<script>
+
+    $(document).ready(() => {
+        $('#form_data').submit((event) => {
+
+            const url = 'https://us-central1-silverbullet-sandbox.cloudfunctions.net/api/saveFollower';
+            
+            const data = {
+                "appId": "-Lw8vbkWqKB2JSTyx4l0",
+                "followerInfo": {
+                    "name": $('#name').val(),
+                    "email": $('#email').val(),
+                    "phoneNumber": $('#phone').val(),
+                    "job": $('#jobTitle').val(),
+                    "company": $('#company').val(),
+                    "companySize": $('select[name=companySize]').val()
+                }
+            }
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                success: (success) => { 
+                    if(success.status === 'success'){
+                        alert('successfully')
+                    } else {
+                        alert('submit failed')
+                    }
+                },
+                error: (XMLHttpRequest, textStatus, errorThrown)=>{
+                    if(XMLHttpRequest.responseJSON.code === 'E01'){
+                        alert(XMLHttpRequest.responseJSON.message);
+                    }
+
+                }
+            });
+            event.preventDefault();
+        });
+    });
+</script>
 
 </html>
