@@ -22,23 +22,23 @@
             <div class="container form__container">
                 <form method="POST" id="form_data" action="">
                     <div class="input-block">
-                        <input placeholder="Name" name="name" id="name" required/>
+                        <input placeholder="Name" name="name" id="name" required />
                     </div>
                     <div class="input-block">
-                        <input placeholder="Job Title" id="jobTitle" name="jobTitle" required/>
+                        <input placeholder="Job Title" id="jobTitle" name="jobTitle" required />
                     </div>
                     <div class="input-block">
-                        <input placeholder="Email" id="email" name="email" required/>
+                        <input placeholder="Email" id="email" name="email" required />
                     </div>
                     <div class="input-block">
-                        <input placeholder="Phone Number" id="phone" name="phone" required/>
+                        <input placeholder="Phone Number" id="phone" name="phone" required />
                     </div>
                     <div class="input-block">
-                        <input placeholder="Company" id="company" name="company" required/>
+                        <input placeholder="Company" id="company" name="company" required />
                     </div>
                     <div class="select-block">
                         <span class="arrow arrow-down"></span>
-                        <select name="companySize" >
+                        <select name="companySize">
                             <option value="1-20 employees">1-20 employees</option>
                             <option value="21-100 employees">21- 100 employees</option>
                             <option value="more thanh 101 employees">more than 101 employees</option>
@@ -55,12 +55,15 @@
 <script>
 
     $(document).ready(() => {
+
         $('#form_data').submit((event) => {
 
             const url = 'https://us-central1-silverbullet-sandbox.cloudfunctions.net/api/saveFollower';
-            
+
+            var href = new URL(window.location.href);
+            var appId = href.searchParams.get("appId");
             const data = {
-                "appId": "-Lw8vbkWqKB2JSTyx4l0",
+                "appId": appId,
                 "followerInfo": {
                     "name": $('#name').val(),
                     "email": $('#email').val(),
@@ -74,15 +77,15 @@
                 type: "POST",
                 url: url,
                 data: data,
-                success: (success) => { 
-                    if(success.status === 'success'){
+                success: (success) => {
+                    if (success.status === 'success') {
                         alert('successfully')
                     } else {
                         alert('submit failed')
                     }
                 },
-                error: (XMLHttpRequest, textStatus, errorThrown)=>{
-                    if(XMLHttpRequest.responseJSON.code === 'E01'){
+                error: (XMLHttpRequest, textStatus, errorThrown) => {
+                    if (XMLHttpRequest.responseJSON.code === 'E01') {
                         alert(XMLHttpRequest.responseJSON.message);
                     }
 
